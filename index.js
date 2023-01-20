@@ -1,6 +1,7 @@
 var taskname = '';
-const input = document.querySelector('.type-taskname');
 
+const input = document.querySelector('.type-taskname');
+const buttonToTurn = document.querySelector('.button');
 
 
 function onChangeSave(ev) {
@@ -8,7 +9,6 @@ function onChangeSave(ev) {
     if (taskname === '') {
         true
     } else {
-        const buttonToTurn = document.querySelector('.button');
         buttonToTurn.classList.remove("button-dont-has-word");
     }
 }
@@ -17,32 +17,56 @@ function onClickAdd() {
     if (taskname === '') {
         alert('the input do not has a name, please type your task name here')
     } else {
-        const tasksArea = document.querySelector('.cards-area');
         
         const card = document.createElement('div');
+        const tasksArea = document.querySelector('.cards-area');
+        const taskNameOnCard = document.createElement('input');
+        const actionsArea = document.createElement('div')
+        const deleteEvent = document.createElement('p');
+        const editEvent = document.createElement('p');
+
         card.className = 'card';
         tasksArea.appendChild(card);
 
-        const taskNameOnCard = document.createElement('input');
         taskNameOnCard.setAttribute('readonly', 'readonly');
         taskNameOnCard.type = 'text';
         taskNameOnCard.value = taskname;
 
-        const editEvent = document.createElement('p');
-        editEvent.innerText = 'edit'
 
+        actionsArea.className.add = 'actions-card';
+        editEvent.innerText = 'EDIT'
+        
+        deleteEvent.innerText = 'DELETE'
+        
+        actionsArea.appendChild(deleteEvent);
+        actionsArea.appendChild(editEvent);
         card.appendChild(taskNameOnCard);
+        card.appendChild(actionsArea)
     
         input.value = '';
+
+        editEvent.addEventListener('click', () => {
+            editNameTask(taskNameOnCard, editEvent);
+            }) 
+        
+        deleteEvent.addEventListener('click', () => {
+            removeCard(tasksArea, card);
+        })
     }
 };
 
-function editNameTask() {
-    const inputToEdit = document.querySelector('.text-card');
-    input.removeAttribute('readonly');
-    input.focus();
+function editNameTask(param, canEdit) {
+    if(canEdit.innerText === 'EDIT') {
+        canEdit.innerText = 'SAVE';
+        param.removeAttribute('readonly');
+        param.focus();
+    }else if(canEdit.innerText === 'SAVE') {
+        canEdit.innerText = 'EDIT';
+        param.setAttribute('readonly', 'readonly');
+        param.blur();
+    }
 }
 
-function removeCard(index) {
-
+function removeCard(param, arg) {
+    param.removeChild(arg)   
 }
