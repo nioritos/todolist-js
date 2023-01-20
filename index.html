@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+<!-- 
+    <div class="modal-close modal-container">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>Do a new task</h1>
+                <button class="close-button" onclick="onClickClose()">X</button>
+            </div>
+            <div class="form-task">
+                <div class="name-task-area">
+                    <label for="name-task">
+                        <h3>Name Task</h3>
+                    </label>
+                    <input type="text" id="name-task" placeholder="type your task name">
+                </div>
+                <div class="description-task-area">
+                    <label for="description-task">
+                        <h3>Description Task</h3>
+                    </label>
+                    <input type="text" id="description-task" placeholder="type your description task">
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="app">
+        <div class="header">
+            <h1>Todo List</h1>
+            <input type="text" placeholder="type your task name here" onchange="onChangeSave()" class="type-taskname">
+            <button onclick="onClickAdd()" class="button-dont-has-word button">New Task</button>
+        </div>
+        <div class="datas">
+            <h1>Tasks Area</h1>
+           <div class="cards-area">
+            
+           </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
