@@ -4,7 +4,6 @@ const input = document.querySelector('.type-taskname');
 const buttonToTurn = document.querySelector('.button');
 
 document.addEventListener('keydown', (v) => {
-   console.log(v)
    
     if(v.key === 'Enter') {
         onClickAdd()
@@ -12,6 +11,13 @@ document.addEventListener('keydown', (v) => {
         false
     }
 })
+
+function closePopup() {
+    const popup = document.querySelector('.background-popup');
+    popup.classList.add('donot-show-popup');
+    const popupContent = document.querySelector('.content-popup');
+    popupContent.classList.add('donot-show-popup');
+}
 
 
 function onChangeSave(ev) {
@@ -25,7 +31,11 @@ function onChangeSave(ev) {
 
 function onClickAdd() {
     if (taskname === '') {
-        alert('the input do not has a name, please type your task name here')
+        const popup = document.querySelector('.background-popup');
+        popup.classList.remove('donot-show-popup');
+        const popupContent = document.querySelector('.content-popup');
+        popupContent.classList.remove('donot-show-popup');
+
     } else {
         
         const card = document.createElement('div');
