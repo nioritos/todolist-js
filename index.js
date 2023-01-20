@@ -3,6 +3,16 @@ var taskname = '';
 const input = document.querySelector('.type-taskname');
 const buttonToTurn = document.querySelector('.button');
 
+document.addEventListener('keydown', (v) => {
+   console.log(v)
+   
+    if(v.key === 'Enter') {
+        onClickAdd()
+    }else {
+        false
+    }
+})
+
 
 function onChangeSave(ev) {
     taskname = input.value;
@@ -23,7 +33,7 @@ function onClickAdd() {
         const taskNameOnCard = document.createElement('input');
         const actionsArea = document.createElement('div')
         const deleteEvent = document.createElement('p');
-        const editEvent = document.createElement('p');
+        const editEvent = document.createElement('i');
 
         card.className = 'card';
         tasksArea.appendChild(card);
